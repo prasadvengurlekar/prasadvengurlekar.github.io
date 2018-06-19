@@ -1,0 +1,14 @@
+﻿<div ng-controller="testpageCtrl">
+     <form>
+    <div ng-repeat="lang in languages">
+      <label>{{lang.name}}</label><i class="fa" ng-class="{1:'fa-heart-o', 0:'fa-heart'}[lang.isFav]" ng-click="wishlistClick(lang)"></i>
+      <input type="range" min="0" max="4" ng-model="lang.value" ng-data-name="lang.name" ng-change="writeInConsole(lang.name)">
+      <input type="text" ng-model="lang.desc" ng-blur="writeInConsole(lang.desc)" />
+
+    </div>
+    <button ng-click="save()">Save</button>
+    <p>{{msg}}</p>
+
+    
+</form>
+</div>
