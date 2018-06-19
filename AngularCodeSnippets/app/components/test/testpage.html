@@ -1,7 +1,7 @@
 ﻿<div ng-controller="testpageCtrl">
      <form>
     <div ng-repeat="lang in languages">
-      <label>{{lang.name}}</label><i class="fa" ng-class="{1:'fa-heart-o', 0:'fa-heart fa-heart-red'}[lang.isFav]" ng-click="wishlistClick(lang)"></i>
+      <label>{{lang.name}}</label><i class="fa" ng-class="{1:'fa-heart-o', 0:'fa-heart fa-heart-red product-like'}[lang.isFav]" ng-click="wishlistClick(lang)"></i>
       <input type="range" min="0" max="4" ng-model="lang.value" ng-data-name="lang.name" ng-change="writeInConsole(lang.name)">
       <input type="text" ng-model="lang.desc" ng-blur="writeInConsole(lang.desc)" />
 
@@ -13,5 +13,9 @@
 </form>
 </div>
 <style>
-    .fa-heart-red{color:red;}
+    .fa-heart{transition: transform .2s;}
+    .fa-heart-red:hover{color:Red; transform: scale(1.5); /* Animation */}  
+    .fa-heart-o:hover{transform: scale(1.5); /* Animation */}   
+    
+    .product-like {transform: scale(1.5);color:Red;}
 </style>
