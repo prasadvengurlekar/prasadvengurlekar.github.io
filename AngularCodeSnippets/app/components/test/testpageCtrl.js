@@ -30,4 +30,30 @@
         $scope.msg = 'Data sent: ' + JSON.stringify($scope.languages);
     }
 
+    //$scope.categories = ['Bangles', 'earrings', 'pendants', 'Bracelets'];
+
+    $scope.categories = [
+    { name: 'Bangles', selected: true },
+    { name: 'Earrings', selected: false },
+    { name: 'Pendants', selected: true },
+    { name: 'Bracelets', selected: false }
+  ];
+
+    // Selected fruits
+    $scope.selection = [];
+
+    $scope.Anchorclick = function ($event) {
+        console.log($event.target.nodeName);
+        if ($event.target.nodeName == 'SPAN') {
+            $("#anchor").removeAttr("data-target");
+        }
+        else {
+            $("#anchor").attr("data-target", "#exampleModalCenter");
+        }
+    }
+    
+    $scope.envelopClick = function () {
+        alert('This is envelop Click');
+    }
+
 } ]);

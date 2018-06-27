@@ -1,21 +1,107 @@
 ﻿<div ng-controller="testpageCtrl">
-     <form>
-    <div ng-repeat="lang in languages">
-      <label>{{lang.name}}</label><i class="fa" ng-class="{1:'fa-heart-o', 0:'fa-heart fa-heart-red product-like'}[lang.isFav]" ng-click="wishlistClick(lang)"></i>
-      <input type="range" min="0" max="4" ng-model="lang.value" ng-data-name="lang.name" ng-change="writeInConsole(lang.name)">
-      <input type="text" ng-model="lang.desc" ng-blur="writeInConsole(lang.desc)" />
-
+    <form style="bottom: 10px;">
+    <div ng-repeat="lang in languages" style="display:none">
+        <label>
+            {{lang.name}}</label><i class="fa" ng-class="{1:'fa-heart-o', 0:'fa-heart fa-heart-red product-like'}[lang.isFav]"
+                ng-click="wishlistClick(lang)"></i>
+        <input type="range" min="0" max="4" ng-model="lang.value" ng-data-name="lang.name"
+            ng-change="writeInConsole(lang.name)">
+        <input type="text" ng-model="lang.desc" ng-blur="writeInConsole(lang.desc)" />
     </div>
-    <button ng-click="save()">Save</button>
-    <p>{{msg}}</p>
-
+    <button ng-click="save()">
+        Save</button>
+    <p>
+        {{msg}}</p>
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>
+                Navigation</h3>
+        </div>
+        <div id="sidebar" class="list-group">
+            <!--<a href="#" class="list-group-item active"><i class="icon-dashboard"></i>Dashboard</a>-->
+            <a href="#category" class="list-group-item" data-toggle="collapse" data-parent="#sidebar">
+                <i class="icon-group"></i>Category<span class="badge bg_danger">0</span></a>
+            <div id="category" class="list-group subitem collapse in">
+                This is Category list
+            </div>
+            <a href="#price" class="list-group-item" data-toggle="collapse" data-parent="#sidebar">
+                <i class="icon-file-text"></i>Price<span class="badge bg_danger">0</span></a>
+            <div id="price" class="list-group subitem collapse">
+            </div>
+            <a href="#metaltype" class="list-group-item" data-toggle="collapse" data-parent="#sidebar">
+                <i class="icon-file-text"></i>Metal Type<span class="badge bg_danger">0</span></a>
+            <div id="metaltype" class="list-group subitem collapse">
+            </div>
+        </div>
+    </div>
+    <br />
+    <div>
+        <a id="anchor" style="width: 100px; height: 100px; background-color: Silver;display: block;" ng-click="Anchorclick($event)" data-toggle="modal" >
+            <span class="fa fa-envelope" ng-click="envelopClick()">
+            </span>
+        </a>
+    </div>
     
-</form>
+    <div class="modal fade"   id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close</button>
+                    <button type="button" class="btn btn-primary">
+                        Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
 </div>
 <style>
-    .fa-heart{transition: transform .2s;}
-    .fa-heart-red:hover{color:Red; transform: scale(1.5); /* Animation */}  
-    .fa-heart-o:hover{transform: scale(1.5); /* Animation */}   
+    .fa-heart
+    {
+        transition: transform .2s;
+    }
+    .fa-heart-red:hover
+    {
+        color: Red;
+        transform: scale(1.5); /* Animation */
+    }
+    .fa-heart-o:hover
+    {
+        transform: scale(1.5); /* Animation */
+    }
     
-    .product-like {transform: scale(1.5);color:Red;}
+    .product-like
+    {
+        transform: scale(1.5);
+        color: Red;
+    }
+    
+    div.subitem a.list-group-item
+    {
+        padding-left: 30px;
+    }
+    
+    #sidebar a
+    {
+        height: 40px;
+    }
 </style>
+<script type="text/javascript">
+    //    $('#sidebar a').on('click', function () {
+    //        $(this).closest('div').find('.collapse').collapse('hide');
+    //        $(this).collapse('show');
+    //    });
+</script>
